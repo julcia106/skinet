@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Core.Interfaces;
 
 namespace API
 {
@@ -21,6 +22,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddControllers();
 
             services.AddDbContext<StoreContext>(x => 
